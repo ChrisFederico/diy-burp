@@ -37,7 +37,9 @@ The main objective is to **learn the HTTP request flow, manipulate parameters, a
     
 2.  Create a payloads.txt file with the payloads to send (one per line, check example file).
     
-3.  python path/to/intruder.py {request_file} {attack_type}
+3. ```bash
+   python path/to/intruder.py {request_file} {attack_type}
+   ```
     
 
 Results will be shown in the log with status code and response length for each payload.
