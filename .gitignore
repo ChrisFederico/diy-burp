@@ -1,0 +1,5 @@
+*/__pycache__
+intruder/requests/*
+intruder/payloads/*
+!intruder/requests/*.example
+!intruder/payloads/*.example
