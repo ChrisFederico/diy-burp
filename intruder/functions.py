@@ -1,5 +1,6 @@
 import requests
 from logger import setup_logger
+import os
 
 logger = setup_logger(__name__)
 session = requests.Session()
@@ -31,3 +32,19 @@ def send_request(method, url, headers, body):
         return session.get(url, headers=headers, verify=False)
     else:
         raise ValueError(f"Unsupported HTTP method: {method}")
+
+
+def load_payloads(file_path):
+    path = os.path.join("payloads", file_path)
+    with open(path, "r", encoding="utf-8") as f:
+        return [line.strip() for line in f if line.strip()]
+
+def load_multiple_payload_lists():
+    payload_dir = "payloads"
+    files = sorted([f for f in os.listdir(payload_dir) if f.endswith(".txt")])
+    payload_lists = []
+    for file in files:
+        with open(os.path.join(payload_dir, file), "r", encoding="utf-8") as f:
+            payloads = [line.strip() for line in f if line.strip()]
+            payload_lists.append(payloads)
+    return payload_lists, files
