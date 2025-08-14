@@ -39,6 +39,7 @@ def load_payloads(file_path):
     with open(path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
 
+
 def load_multiple_payload_lists():
     payload_dir = "payloads"
     files = sorted([f for f in os.listdir(payload_dir) if f.endswith(".txt")])
